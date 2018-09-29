@@ -29,7 +29,7 @@ class BaseError(dbus.exceptions.DBusException):
 
         Arguments:
         - `name`: The name of exception to send through D-Bus. If not set,
-          'org.osdlyrics.Error.' + the name of the class (without 'Error'
+          'org.lyricsource.Error.' + the name of the class (without 'Error'
           suffix, if any) will be returned.
         - `*args`:
         - `*kwargs`:
@@ -39,7 +39,7 @@ class BaseError(dbus.exceptions.DBusException):
             error_name = self.__class__.__name__
             if error_name.endswith('Error'):
                 error_name = error_name[:-len('Error')]
-            dbus_error_name = 'org.osdlyrics.Error.' + error_name
+            dbus_error_name = 'org.lyricsource.Error.' + error_name
         kwargs['name'] = dbus_error_name
         dbus.exceptions.DBusException.__init__(self, *args, **kwargs)
 

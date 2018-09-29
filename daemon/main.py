@@ -22,11 +22,11 @@ import logging
 
 import dbus
 
-from osdlyrics.app import AlreadyRunningException, App
-from osdlyrics.consts import (CONFIG_BUS_NAME, DAEMON_BUS_NAME,
+from lyricsources.app import AlreadyRunningException, App
+from lyricsources.consts import (CONFIG_BUS_NAME, DAEMON_BUS_NAME,
                               DAEMON_INTERFACE, DAEMON_MPRIS2_NAME,
                               DAEMON_OBJECT_PATH, MPRIS2_OBJECT_PATH)
-from osdlyrics.metadata import Metadata
+from lyricsources.metadata import Metadata
 
 import config
 import lyrics
@@ -83,16 +83,16 @@ class MainApp(App):
 def is_valid_client_bus_name(name):
     """Check if a client bus name is valid.
 
-    A client bus name is valid if it starts with `org.osdlyrics.Client.`
+    A client bus name is valid if it starts with `org.lyricsources.Client.`
 
     Arguments:
     - `name`: The bus name of client
     """
-    return name.startswith('org.osdlyrics.Client.')
+    return name.startswith('org.lyricsources.Client.')
 
 
 class DaemonObject(dbus.service.Object):
-    """ DBus Object implementing org.osdlyrics.Daemon
+    """ DBus Object implementing org.lyricsources.Daemon
     """
 
     def __init__(self, app):

@@ -29,7 +29,7 @@ import gobject
 
 from .consts import DAEMON_BUS_NAME
 
-APP_BUS_PREFIX = 'org.osdlyrics.'
+APP_BUS_PREFIX = 'org.lyricsource.'
 
 
 gobject.threads_init()
@@ -51,7 +51,7 @@ class App(object):
      - `-w`, `--watch-daemon`: If not empty, watch the daemon with given bus name.
        The default value is the bus name of OSD Lyrics
 
-    To create an component application owning the bus name ``org.osdlyrics.MyApp``,
+    To create an component application owning the bus name ``org.lyricsource.MyApp``,
     just simply follow the code below:
 
       app = App('MyApp')
@@ -63,7 +63,7 @@ class App(object):
 
         Arguments:
         - `name`: The suffix of the bus name. The full bus name is
-          `org.osdlyrics.` + name
+          `org.lyricsource.` + name
         - `watch_daemon`: Whether to watch daemon bus
         - `singleton`: If True, raise AlreadyRunningException if the bus name
                        already has an owner.

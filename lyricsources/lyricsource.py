@@ -143,7 +143,7 @@ class BaseLyricSourcePlugin(DBusObject):
         Arguments:
 
         - `id`: The unique ID of the lyric source plugin. The full bus
-          name of the plugin will be `org.osdlyrics.LyricSourcePlugin.id`
+          name of the plugin will be `org.lyricsource.LyricSourcePlugin.id`
         - `name`: (optional) The name of the plugin, which should be properly
           localized. If `name` is missing, the plugin will take `id` as its
           name.
@@ -171,7 +171,7 @@ class BaseLyricSourcePlugin(DBusObject):
         Parameters:
 
         - `metadata`: The metadata of the track to search. The type of `metadata`
-          is osdlyrics.metadata.Metadata
+          is lyricsource.metadata.Metadata
 
         Returns: A list of SearchResult objects
         """
@@ -398,8 +398,8 @@ def test():
     dummysource = DummyLyricSourcePlugin()
     app = dummysource.app
     conn = app.connection
-    source = conn.get_object('org.osdlyrics.LyricSourcePlugin.dummy',
-                             '/org/osdlyrics/LyricSourcePlugin/dummy')
+    source = conn.get_object('org.lyricsource.LyricSourcePlugin.dummy',
+                             '/org/lyricsource/LyricSourcePlugin/dummy')
     source.connect_to_signal('SearchComplete',
                              search_complete_cb)
     source.connect_to_signal('DownloadComplete',

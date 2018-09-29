@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.lyricsource.Config
+Exec=@PYTHON@ @PKGLIBDIR@/daemon/ini_config.py

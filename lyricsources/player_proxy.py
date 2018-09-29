@@ -47,7 +47,7 @@ class BasePlayerProxy(dbus.service.Object):
 
         Arguments:
         - `name`: The suffix of the bus name. The full bus name is
-          `org.osdlyrics.PlayerProxy.` + name
+          `org.lyricsource.PlayerProxy.` + name
         """
         self._app = App('PlayerProxy.' + name)
         super(BasePlayerProxy, self).__init__(

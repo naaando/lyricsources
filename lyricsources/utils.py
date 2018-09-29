@@ -69,11 +69,11 @@ def get_config_path(filename='', expanduser=True):
       home directory
 
     >>> get_config_path(expanduser=False)
-    '~/.config/osdlyrics/'
-    >>> get_config_path('osdlyrics.conf', False)
-    '~/.config/osdlyrics/osdlyrics.conf'
+    '~/.config/lyricsource/'
+    >>> get_config_path('lyricsource.conf', False)
+    '~/.config/lyricsource/lyricsource.conf'
     """
-    path = os.path.join('~/.config/osdlyrics/', filename)
+    path = os.path.join('~/.config/lyricsource/', filename)
     if expanduser:
         path = os.path.expanduser(path)
     return path
@@ -137,7 +137,7 @@ def get_proxy_settings(config=None, conn=None):
     The caller must specify either config or conn.
 
     Arguments:
-     - `config`: A osdlyrics.config.Config object, this object is used to retrive
+     - `config`: A lyricsource.config.Config object, this object is used to retrive
                  proxy settings. If it is not set, the caller MUST set conn to a
                  valid D-Bus connection to create a Config object
      - `conn`: A D-Bus connection object, this is used when `config` is not

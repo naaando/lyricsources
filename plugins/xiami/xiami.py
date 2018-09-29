@@ -23,8 +23,8 @@ import httplib
 # import urlparse
 import gettext
 import HTMLParser
-from osdlyrics.lyricsource import BaseLyricSourcePlugin, SearchResult
-from osdlyrics.utils import ensure_utf8, http_download, get_proxy_settings
+from lyricsource.lyricsource import BaseLyricSourcePlugin, SearchResult
+from lyricsource.utils import ensure_utf8, http_download, get_proxy_settings
 
 _ = gettext.gettext
 
@@ -37,8 +37,8 @@ XIAMI_ID_PATTERN = re.compile(r'<a [^<]*?onclick="tag\((\d+).*?>')
 XIAMI_URL_PATTERN = re.compile(r'<lyric>(.*?)</lyric>', re.DOTALL)
 TITLE_ATTR_PATTERN = re.compile(r'title="(.*?)"')
 
-gettext.bindtextdomain('osdlyrics')
-gettext.textdomain('osdlyrics')
+gettext.bindtextdomain('lyricsource')
+gettext.textdomain('lyricsource')
 
 class XiamiSource(BaseLyricSourcePlugin):
     """ Lyric source from xiami.com

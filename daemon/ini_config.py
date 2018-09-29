@@ -24,34 +24,34 @@ import dbus
 import dbus.service
 import glib
 
-from osdlyrics.app import App
-from osdlyrics.consts import CONFIG_BUS_NAME, CONFIG_OBJECT_PATH
-import osdlyrics.errors
-import osdlyrics.utils
+from lyricsources.app import App
+from lyricsources.consts import CONFIG_BUS_NAME, CONFIG_OBJECT_PATH
+import lyricsources.errors
+import lyricsources.utils
 
 
-class MalformedKeyError(osdlyrics.errors.BaseError):
+class MalformedKeyError(lyricsources.errors.BaseError):
     def __init__(self, *args):
         super(MalformedKeyError, self).__init__(*args)
 
-class ValueNotExistError(osdlyrics.errors.BaseError):
+class ValueNotExistError(lyricsources.errors.BaseError):
     def __init__(self, key=''):
         super(ValueNotExistError, self).__init__(
             'Value of key %s does not exist' % key
             )
 
 class IniConfig(dbus.service.Object):
-    """ Implement org.osdlyrics.Config
+    """ Implement org.lyricsources.Config
     """
 
     def __init__(self,
                  conn,
-                 filename=osdlyrics.utils.get_config_path('osdlyrics.conf')):
+                 filename=lyricsources.utils.get_config_path('lyricsources.conf')):
         super(IniConfig, self).__init__(conn=conn,
                                         object_path=CONFIG_OBJECT_PATH)
         self._conn = conn
         self._confparser = ConfigParser.RawConfigParser()
-        osdlyrics.utils.ensure_path(filename)
+        lyricsources.utils.ensure_path(filename)
         self._confparser.read(filename)
         self._filename = filename
         self._save_timer = None

@@ -21,13 +21,13 @@
 import dbus
 import logging
 
-import osdlyrics.config
-from osdlyrics.consts import (LYRIC_SOURCE_PLUGIN_INTERFACE,
+import lyricsources.config
+from lyricsources.consts import (LYRIC_SOURCE_PLUGIN_INTERFACE,
                               LYRIC_SOURCE_PLUGIN_OBJECT_PATH_PREFIX)
 
-LYRIC_SOURCE_INTERFACE = 'org.osdlyrics.LyricSource'
-LYRIC_SOURCE_OBJECT_PATH = '/org/osdlyrics/LyricSource'
-LYRIC_SOURCE_PLUGIN_BUS_NAME_PREFIX = 'org.osdlyrics.LyricSourcePlugin.'
+LYRIC_SOURCE_INTERFACE = 'org.lyricsources.LyricSource'
+LYRIC_SOURCE_OBJECT_PATH = '/org/lyricsources/LyricSource'
+LYRIC_SOURCE_PLUGIN_BUS_NAME_PREFIX = 'org.lyricsources.LyricSourcePlugin.'
 
 STATUS_SUCCESS = 0
 STATUS_CANCELLED = 1
@@ -50,7 +50,7 @@ def validateticket(component):
 
 
 class LyricSource(dbus.service.Object):
-    """ Implement org.osdlyrics.LyricSource interface
+    """ Implement org.lyricsources.LyricSource interface
     """
 
     def __init__(self, conn):
@@ -63,7 +63,7 @@ class LyricSource(dbus.service.Object):
         self._download_tasks = {}
         self._n_download_tickets = 0
         self._detect_sources()
-        self._config = osdlyrics.config.Config(conn)
+        self._config = lyricsources.config.Config(conn)
 
     def _detect_sources(self):
         for bus_name in self.connection.list_names():

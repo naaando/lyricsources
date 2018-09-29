@@ -23,25 +23,25 @@ import logging
 import dbus.service
 import glib
 
-import osdlyrics
-from osdlyrics.app import App
-from osdlyrics.consts import (MPRIS2_PLAYER_INTERFACE, MPRIS2_OBJECT_PATH,
+import lyricsources
+from lyricsources.app import App
+from lyricsources.consts import (MPRIS2_PLAYER_INTERFACE, MPRIS2_OBJECT_PATH,
                               PLAYER_PROXY_INTERFACE,
                               PLAYER_PROXY_OBJECT_PATH_PREFIX)
-from osdlyrics.dbusext.service import (Object as DBusObject,
+from lyricsources.dbusext.service import (Object as DBusObject,
                                        property as dbus_property)
-import osdlyrics.timer
+import lyricsources.timer
 
 import config
 
 MPRIS2_ROOT_INTERFACE = 'org.mpris.MediaPlayer2'
-PLAYER_INTERFACE = 'org.osdlyrics.Player'
-PLAYER_OBJECT_PATH = '/org/osdlyrics/Player'
-PLAYER_PROXY_BUS_NAME_PREFIX = 'org.osdlyrics.PlayerProxy.'
+PLAYER_INTERFACE = 'org.lyricsources.Player'
+PLAYER_OBJECT_PATH = '/org/lyricsources/Player'
+PLAYER_PROXY_BUS_NAME_PREFIX = 'org.lyricsources.PlayerProxy.'
 
 
 class PlayerSupport(dbus.service.Object):
-    """ Implement org.osdlyrics.Player Interface
+    """ Implement org.lyricsources.Player Interface
     """
 
     DETECT_PLAYER_TIMEOUT = 1000
@@ -218,7 +218,7 @@ class Mpris2Player(DBusObject):
                                            object_path=MPRIS2_OBJECT_PATH)
         self._signals = []
         self._player = None
-        self._timer = osdlyrics.timer.Timer()
+        self._timer = lyricsources.timer.Timer()
         self._clear_properties()
 
     def _clear_properties(self):
@@ -548,7 +548,7 @@ class Mpris2Player(DBusObject):
     @dbus_property(dbus_interface=MPRIS2_ROOT_INTERFACE,
                    type_signature='s')
     def DesktopEntry(self):
-        return 'osdlyrics'
+        return 'lyricsources'
 
     @dbus_property(dbus_interface=MPRIS2_ROOT_INTERFACE,
                    type_signature='as')
@@ -562,8 +562,8 @@ class Mpris2Player(DBusObject):
 
 
 def test():
-    app = App('osdlyrics')
-    mpris2_name = dbus.service.BusName('org.mpris.osdlyrics', app.connection)
+    app = App('lyricsources')
+    mpris2_name = dbus.service.BusName('org.mpris.lyricsources', app.connection)
     player_support = PlayerSupport(app.connection)
     app.run()
 

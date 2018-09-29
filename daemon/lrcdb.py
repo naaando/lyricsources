@@ -22,9 +22,9 @@ import logging
 import sqlite3
 import os.path
 import urllib
-import osdlyrics.utils
-from osdlyrics.utils import ensure_unicode, ensure_utf8
-from osdlyrics.consts import METADATA_URI, METADATA_TITLE, METADATA_ALBUM, \
+import lyricsources.utils
+from lyricsources.utils import ensure_unicode, ensure_utf8
+from lyricsources.consts import METADATA_URI, METADATA_TITLE, METADATA_ALBUM, \
     METADATA_ARTIST, METADATA_TRACKNUM
 
 __all__ = (
@@ -113,9 +113,9 @@ UPDATE {0}
         - `dbfile`: The sqlite db to open
         """
         if dbfile is None:
-            dbfile = osdlyrics.utils.get_config_path('lrc.db')
+            dbfile = lyricsources.utils.get_config_path('lrc.db')
         self._dbfile = dbfile
-        osdlyrics.utils.ensure_path(dbfile)
+        lyricsources.utils.ensure_path(dbfile)
         self._conn = sqlite3.connect(os.path.expanduser(dbfile))
         self._create_table()
 
@@ -214,7 +214,7 @@ UPDATE {0}
 def test():
     """
     >>> import dbus
-    >>> from osdlyrics.metadata import Metadata
+    >>> from lyricsources.metadata import Metadata
     >>> db = LrcDb('/tmp/asdf')
     >>> db.assign(Metadata.from_dict({'title': 'Tiger',
     ...                               'artist': 'Soldier',

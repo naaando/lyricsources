@@ -1,8 +1,8 @@
 import httplib
 import gettext
 import json
-from osdlyrics.lyricsource import BaseLyricSourcePlugin, SearchResult
-from osdlyrics.utils import ensure_utf8, http_download, get_proxy_settings
+from lyricsource.lyricsource import BaseLyricSourcePlugin, SearchResult
+from lyricsource.utils import ensure_utf8, http_download, get_proxy_settings
 
 _ = gettext.gettext
 
@@ -10,8 +10,8 @@ NETEASE_HOST = 'music.163.com'
 NETEASE_SEARCH_URL = '/api/search/get'
 NETEASE_LYRIC_URL = '/api/song/lyric'
 
-gettext.bindtextdomain('osdlyrics')
-gettext.textdomain('osdlyrics')
+gettext.bindtextdomain('lyricsource')
+gettext.textdomain('lyricsource')
 
 class NeteaseSource(BaseLyricSourcePlugin):
     """ Lyric source from music.163.com
