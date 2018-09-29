@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=org.osdlyrics.LyricSourcePlugin.lrc123
-Exec=/usr/bin/python2 /usr/local/lib/osdlyrics/lyricsources/lrc123/lrc123.py

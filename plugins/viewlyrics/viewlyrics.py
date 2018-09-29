@@ -23,8 +23,8 @@ import unicodedata
 import httplib
 import hashlib
 from xml.dom.minidom import parseString
-from osdlyrics.lyricsource import BaseLyricSourcePlugin, SearchResult
-from osdlyrics.utils import ensure_utf8, http_download, get_proxy_settings
+from lyricsource.lyricsource import BaseLyricSourcePlugin, SearchResult
+from lyricsource.utils import ensure_utf8, http_download, get_proxy_settings
 
 VIEWLYRICS_HOST = 'search.crintsoft.com'
 VIEWLYRICS_SEARCH_URL = '/searchlyrics.htm'
