@@ -51,7 +51,6 @@ class MainApp(App):
     def __init__(self, ):
         App.__init__(self, 'Daemon', False)
         self._activate_config()
-        self.request_bus_name(DAEMON_MPRIS2_NAME)
         self._daemon_object = DaemonObject(self)
         self._lyricsource = lyricsource.LyricSource(self.connection)
 
