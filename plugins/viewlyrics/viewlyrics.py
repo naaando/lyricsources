@@ -23,8 +23,8 @@ import unicodedata
 import httplib
 import hashlib
 from xml.dom.minidom import parseString
-from lyricsource.lyricsource import BaseLyricSourcePlugin, SearchResult
-from lyricsource.utils import ensure_utf8, http_download, get_proxy_settings
+from lyricsources.lyricsource import BaseLyricSourcePlugin, SearchResult
+from lyricsources.utils import ensure_utf8, http_download, get_proxy_settings
 
 VIEWLYRICS_HOST = 'search.crintsoft.com'
 VIEWLYRICS_SEARCH_URL = '/searchlyrics.htm'
@@ -46,7 +46,7 @@ def normalize_str(s):
 
 class ViewlyricsSource(BaseLyricSourcePlugin):
     def __init__(self):
-        
+
         BaseLyricSourcePlugin.__init__(self, id='viewlyrics', name='ViewLyrics')
 
     def do_search(self, metadata):
@@ -58,7 +58,7 @@ class ViewlyricsSource(BaseLyricSourcePlugin):
             artist = metadata.artist
         else:
             artist = ''
-        
+
         result = []
         page = 0
         pagesleft = 1
@@ -88,28 +88,28 @@ class ViewlyricsSource(BaseLyricSourcePlugin):
         query =  query.replace('%title', title)
         query =  query.replace('%artist', artist)
         query =  ensure_utf8(query.replace('%etc', ' client=\"MiniLyrics\" RequestPage=\'%d\'' % page)) #Needs real RequestPage
-        
+
         queryhash = hashlib.md5()
         queryhash.update(query)
         queryhash.update(VIEWLYRICS_KEY)
-        
+
         masterquery = '\2\0\4\0\0\0' + queryhash.digest() + query
-        
+
         url = VIEWLYRICS_HOST + VIEWLYRICS_SEARCH_URL
         status, content = http_download(url=url,
                                         method='POST',
                                         params=masterquery,
                                         proxy=get_proxy_settings(self.config_proxy))
-        
+
         if status < 200 or status >= 400:
                 raise httplib.HTTPException(status, '')
-        
+
         contentbytes = map(ord, content)
         codekey = contentbytes[1]
         deccontent = ''
         for char in contentbytes[22:]:
                 deccontent += chr(char ^ codekey)
-        
+
         result = []
         pagesleft = 0
         tagreturn = parseString(deccontent).getElementsByTagName('return')[0]
