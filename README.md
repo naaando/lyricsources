@@ -1,6 +1,6 @@
-# Lyricsources Standalone
+# Lyricsource Standalone
 
-Lyricsources is a lyric downloader dbus service from osdlyrics.
+Lyricsource is a lyric downloader dbus service from osdlyrics.
 Building and installation
 
 ```
