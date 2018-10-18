@@ -27,7 +27,6 @@ install_data(
     'ini_config.py',
     'lrcdb.py',
     'lyricsource.py',
-    'lyrics.py',
     'main.py',
     'player.py',
     install_dir : install_path,
