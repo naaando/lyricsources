@@ -25,7 +25,6 @@ configure_file (
 install_data(
     'errors.py',
     'ini_config.py',
-    'lrcdb.py',
     'lyricsource.py',
     'main.py',
     install_dir : install_path,
