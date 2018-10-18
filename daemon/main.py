@@ -29,9 +29,7 @@ from lyricsources.consts import (CONFIG_BUS_NAME, DAEMON_BUS_NAME,
 from lyricsources.metadata import Metadata
 
 import config
-import lyrics
 import lyricsource
-import player
 
 logging.basicConfig(level=logging.WARNING)
 
@@ -52,32 +50,16 @@ class InvalidClientNameException(Exception):
 class MainApp(App):
     def __init__(self, ):
         App.__init__(self, 'Daemon', False)
-        self._player = player.PlayerSupport(self.connection)
-        self._lyrics = lyrics.LyricsService(self.connection)
-        self._connect_metadata_signal()
         self._activate_config()
         self.request_bus_name(DAEMON_MPRIS2_NAME)
         self._daemon_object = DaemonObject(self)
         self._lyricsource = lyricsource.LyricSource(self.connection)
-        self._lyrics.set_current_metadata(Metadata.from_dict(
-            self._player.current_player.Metadata))
-
-    def _connect_metadata_signal(self, ):
-        self._mpris_proxy = self.connection.get_object(DAEMON_BUS_NAME,
-                                                       MPRIS2_OBJECT_PATH)
-        self._metadata_signal = self._mpris_proxy.connect_to_signal(
-            'PropertiesChanged', self._player_properties_changed)
 
     def _activate_config(self, ):
         try:
             self.connection.activate_name_owner(CONFIG_BUS_NAME)
         except:
             logging.error("Cannot activate config service")
-
-    def _player_properties_changed(self, iface, changed, invalidated):
-        if 'Metadata' in changed:
-            self._lyrics.set_current_metadata(Metadata.from_dict(
-                changed['Metadata']))
 
 
 def is_valid_client_bus_name(name):
