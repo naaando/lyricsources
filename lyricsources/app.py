@@ -29,7 +29,7 @@ import gobject
 
 from .consts import DAEMON_BUS_NAME
 
-APP_BUS_PREFIX = 'org.lyricsource.'
+APP_BUS_PREFIX = 'org.lyricsources.'
 
 
 gobject.threads_init()

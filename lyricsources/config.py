@@ -24,7 +24,7 @@ import dbus
 
 from .consts import CONFIG_BUS_NAME, CONFIG_OBJECT_PATH
 
-CONFIG_INTERFACE = 'org.lyricsource.Config'
+CONFIG_INTERFACE = 'org.lyricsources.Config'
 
 
 class Config(object):

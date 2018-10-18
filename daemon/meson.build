@@ -8,8 +8,8 @@ conf_data.set('PYTHON', find_program('python2').path())
 conf_data.set('PATH', install_path)
 
 configure_file (
-    input: 'lyricsource-daemon.in',
-    output: 'lyricsource-daemon',
+    input: 'lyricsources-daemon.in',
+    output: 'lyricsources-daemon',
     configuration: conf_data,
     install_dir: join_paths(get_option('bindir')),
     install_mode: 'rwxrwxr-x',

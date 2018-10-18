@@ -69,11 +69,11 @@ def get_config_path(filename='', expanduser=True):
       home directory
 
     >>> get_config_path(expanduser=False)
-    '~/.config/lyricsource/'
+    '~/.config/lyricsources/'
     >>> get_config_path('lyricsource.conf', False)
-    '~/.config/lyricsource/lyricsource.conf'
+    '~/.config/lyricsources/lyricsource.conf'
     """
-    path = os.path.join('~/.config/lyricsource/', filename)
+    path = os.path.join('~/.config/lyricsources/', filename)
     if expanduser:
         path = os.path.expanduser(path)
     return path
