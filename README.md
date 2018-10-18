@@ -10,7 +10,7 @@ $ ninja -C build install
 
 ## DBus Interface
 
-It exposes it's services on org.lyricsources.LyricSourcesPlugin.[plugin_name] which you check on D-feet
+It exposes it's services on org.lyricsources.LyricSourcePlugin.[plugin_name] which you check on D-feet
 The interface org.osdlyrics.LyricSourcePlugin is responsible for managing the searches and downloads.
 
 ## License

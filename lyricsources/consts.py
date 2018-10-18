@@ -31,8 +31,8 @@ PLAYER_PROXY_INTERFACE = 'org.lyricsources.PlayerProxy'
 PLAYER_PROXY_OBJECT_PATH_PREFIX = '/org/lyricsources/PlayerProxy/'
 MPRIS2_PLAYER_INTERFACE = 'org.mpris.MediaPlayer2.Player'
 MPRIS2_OBJECT_PATH = '/org/mpris/MediaPlayer2'
-LYRIC_SOURCE_PLUGIN_INTERFACE = 'org.lyricsources.LyricSourcesPlugin'
-LYRIC_SOURCE_PLUGIN_OBJECT_PATH_PREFIX = '/org/lyricsources/LyricSourcesPlugin/'
+LYRIC_SOURCE_PLUGIN_INTERFACE = 'org.lyricsources.LyricSourcePlugin'
+LYRIC_SOURCE_PLUGIN_OBJECT_PATH_PREFIX = '/org/lyricsources/LyricSourcePlugin/'
 
 # Metadata keys
 METADATA_TITLE = 'title'
