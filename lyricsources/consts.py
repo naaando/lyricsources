@@ -19,20 +19,20 @@
 #
 
 # D-Bus names, interfaces and object paths
-DAEMON_INTERFACE = 'org.lyricsources.Daemon'
-DAEMON_BUS_NAME = 'org.lyricsources.Daemon'
-DAEMON_OBJECT_PATH = '/org/lyricsources/Daemon'
+DAEMON_INTERFACE = 'org.lyricsource.Daemon'
+DAEMON_BUS_NAME = 'org.lyricsource.Daemon'
+DAEMON_OBJECT_PATH = '/org/lyricsource/Daemon'
 MPRIS2_PREFIX = 'org.mpris.MediaPlayer2.'
-DAEMON_MPRIS2_NAME = 'org.mpris.MediaPlayer2.lyricsources'
+DAEMON_MPRIS2_NAME = 'org.mpris.MediaPlayer2.lyricsource'
 
-CONFIG_BUS_NAME = 'org.lyricsources.Config'
-CONFIG_OBJECT_PATH = '/org/lyricsources/Config'
-PLAYER_PROXY_INTERFACE = 'org.lyricsources.PlayerProxy'
-PLAYER_PROXY_OBJECT_PATH_PREFIX = '/org/lyricsources/PlayerProxy/'
+CONFIG_BUS_NAME = 'org.lyricsource.Config'
+CONFIG_OBJECT_PATH = '/org/lyricsource/Config'
+PLAYER_PROXY_INTERFACE = 'org.lyricsource.PlayerProxy'
+PLAYER_PROXY_OBJECT_PATH_PREFIX = '/org/lyricsource/PlayerProxy/'
 MPRIS2_PLAYER_INTERFACE = 'org.mpris.MediaPlayer2.Player'
 MPRIS2_OBJECT_PATH = '/org/mpris/MediaPlayer2'
-LYRIC_SOURCE_PLUGIN_INTERFACE = 'org.lyricsources.LyricSourcePlugin'
-LYRIC_SOURCE_PLUGIN_OBJECT_PATH_PREFIX = '/org/lyricsources/LyricSourcePlugin/'
+LYRIC_SOURCE_PLUGIN_INTERFACE = 'org.lyricsource.LyricSourcePlugin'
+LYRIC_SOURCE_PLUGIN_OBJECT_PATH_PREFIX = '/org/lyricsource/LyricSourcePlugin/'
 
 # Metadata keys
 METADATA_TITLE = 'title'
