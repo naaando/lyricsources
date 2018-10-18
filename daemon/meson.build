@@ -1,4 +1,4 @@
-install_path = join_paths(get_option('prefix'), get_option('libdir'), 'lyricsource', 'daemon')
+install_path = join_paths(get_option('prefix'), get_option('libdir'), 'lyricsources', 'daemon')
 
 conf_data = configuration_data()
 conf_data.set('PROGRAM_NAME', meson.project_name ())

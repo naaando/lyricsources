@@ -24,8 +24,8 @@ import re
 
 import pycurl
 
-from lyricsource.lyricsource import BaseLyricSourcePlugin, SearchResult
-from lyricsource.utils import http_download, get_proxy_settings
+from lyricsources.lyricsource import BaseLyricSourcePlugin, SearchResult
+from lyricsources.utils import http_download, get_proxy_settings
 
 HOST = 'www.lrc123.com'
 SEARCH_URL = '/?keyword=%s&field=all'

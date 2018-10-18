@@ -1,8 +1,8 @@
 import httplib
 import gettext
 import json
-from lyricsource.lyricsource import BaseLyricSourcePlugin, SearchResult
-from lyricsource.utils import ensure_utf8, http_download, get_proxy_settings
+from lyricsources.lyricsource import BaseLyricSourcePlugin, SearchResult
+from lyricsources.utils import ensure_utf8, http_download, get_proxy_settings
 
 _ = gettext.gettext
 
