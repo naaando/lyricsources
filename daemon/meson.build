@@ -28,6 +28,5 @@ install_data(
     'lrcdb.py',
     'lyricsource.py',
     'main.py',
-    'player.py',
     install_dir : install_path,
 )
