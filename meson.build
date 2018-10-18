@@ -14,6 +14,5 @@ conf_data.set('PKGLIBDIR', join_paths(get_option('prefix'), get_option('libdir')
 install_subdir ('lyricsources', install_dir: join_paths(python.get_install_dir()))
 
 subdir ('daemon')
-# subdir ('lyricsource')
 subdir ('plugins')
 subdir ('data')
