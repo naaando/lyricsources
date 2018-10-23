@@ -136,7 +136,7 @@ class BaseLyricSourcePlugin(DBusObject):
     """ Base class for implementing a lyric source plugin
     """
 
-    def __init__(self, id, name=None, watch_daemon=True):
+    def __init__(self, id, name=None, watch_daemon=False):
         """
         Create a new lyric source instance.
 
