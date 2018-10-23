@@ -300,6 +300,10 @@ class BaseLyricSourcePlugin(DBusObject):
         """
         return self._id
 
+    @property
+    def config_proxy(self):
+        return None
+
 def test():
     class DummyLyricSourcePlugin(BaseLyricSourcePlugin):
         def __init__(self):
