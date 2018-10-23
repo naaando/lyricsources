@@ -130,7 +130,7 @@ else:
     url2path = lambda urlparts: urllib.request.url2pathname(urlparts.path)
 
 
-def get_proxy_settings(config=None, conn=None):
+def get_proxy_settings():
     r"""
     Return proxy settings as a ProxySettings object
 
@@ -143,23 +143,7 @@ def get_proxy_settings(config=None, conn=None):
      - `conn`: A D-Bus connection object, this is used when `config` is not
                specified.
     """
-    if config is None and conn is None:
-        raise ValueError('Either config or conn must be specified')
-    if config is None:
-        config = config.Config(conn)
-    proxy_type = config.get_string('Download/proxy')
-    if proxy_type.lower() == 'no':
-        return ProxySettings(protocol='no')
-    if proxy_type.lower() == 'manual':
-        protocol = config.get_string('Download/proxy-type')
-        host = config.get_string('Download/proxy-host')
-        port = config.get_int('Download/proxy-port')
-        username = config.get_string('Download/proxy-username')
-        passwd = config.get_string('Download/proxy-passwd')
-        return ProxySettings(protocol=protocol, host=host, port=port,
-                            username=username, password=passwd)
-    if proxy_type.lower() == 'system':
-        return detect_system_proxy()
+    return detect_system_proxy()
 
 def detect_system_proxy():
     r"""

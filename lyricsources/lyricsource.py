@@ -24,7 +24,6 @@ import threading
 import dbus
 
 from .app import App
-from .config import Config
 from .consts import (LYRIC_SOURCE_PLUGIN_INTERFACE,
                      LYRIC_SOURCE_PLUGIN_OBJECT_PATH_PREFIX)
 from .dbusext.service import Object as DBusObject, property as dbus_property
@@ -160,7 +159,6 @@ class BaseLyricSourcePlugin(DBusObject):
         self._search_tasks = {}
         self._download_tasks = {}
         self._name = name if name is not None else id
-        self._config = None
 
     def do_search(self, metadata):
         """
@@ -301,13 +299,6 @@ class BaseLyricSourcePlugin(DBusObject):
         Return the ID of the lyric source
         """
         return self._id
-
-    @property
-    def config_proxy(self):
-        if self._config is None:
-            self._config = Config(self._app.connection)
-        return self._config
-
 
 def test():
     class DummyLyricSourcePlugin(BaseLyricSourcePlugin):
