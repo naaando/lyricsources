@@ -130,7 +130,7 @@ else:
     url2path = lambda urlparts: urllib.request.url2pathname(urlparts.path)
 
 
-def get_proxy_settings():
+def get_proxy_settings(config=None, conn=None):
     r"""
     Return proxy settings as a ProxySettings object
 
