@@ -1,7 +1,8 @@
 # Lyricsource Standalone
 
 Lyricsource is a lyric downloader dbus service from osdlyrics.
-Building and installation
+
+## Building and installation
 
 ```
 $ meson build --prefix ~/.local/
