@@ -1,0 +1,18 @@
+Source: lyricsources
+Maintainer: Fernando da Silva Sousa <wild.nando@gmail.com>
+Priority: optional
+Standards-Version: 4.1.4
+Homepage: https://github.com/naaando/lyricsources
+Build-Depends: debhelper (>=10),
+               gettext,
+               meson,
+               valac
+
+Package: lyricsources
+Architecture: any
+Depends: ${misc:Depends}
+Pre-Depends: dpkg (>= 1.15)
+Description: Lyricsources
+	Python framework for downloading lyrics providing a DBus interface
+	Is meant to be used by plugins which should ship DBus service files
+	This package ships four plugins already(lrc123, viewlyrics, netease, xiami).
