@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=@SERVICE_NAME@
+Exec=@PYTHON@ @PKGLIBDIR@/@SERVICE_PATH@
