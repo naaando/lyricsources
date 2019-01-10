@@ -11,7 +11,7 @@ conf_data = configuration_data()
 conf_data.set('PYTHON', find_program('python2').path())
 conf_data.set('PKGLIBDIR', join_paths(get_option('prefix'), get_option('libdir'), 'lyricsources'))
 
-install_subdir ('lyricsources', install_dir: join_paths('lib', 'python2.7'))
+install_subdir ('lyricsources', install_dir: join_paths('lib', 'python2.7', 'dist-packages'))
 
 subdir ('plugins')
 subdir ('data')
